@@ -1,10 +1,15 @@
-import { AppContextObject, useGlobalContext } from "../context";
+import { AppContextObject, AppContext } from "../context";
 import Link from "next/link";
+import { useContext } from "react";
 
 const Navbar = () => {
   // Consuming the context
-  const { setIsMenuOpen, isMenuOpen, user } =
-    useGlobalContext() as AppContextObject;
+  // const { setIsMenuOpen, isMenuOpen, user } =
+  //   useGlobalContext() as AppContextObject;
+
+  const { setIsMenuOpen, isMenuOpen, user } = useContext(
+    AppContext
+  ) as AppContextObject;
 
   // Toggle menu option
   const toggleMenu = () => {
@@ -51,12 +56,9 @@ const Navbar = () => {
         <div className="hover:text-gray-500 text-black drop-shadow-2xl">
           <Link href={"/"}>Home</Link>
         </div>
-        <a
-          href="/create-post"
-          className="hover:text-gray-500 text-black drop-shadow-2xl"
-        >
-          Create Post
-        </a>
+        <div className="hover:text-gray-500 text-black drop-shadow-2xl">
+          <Link href={"/signup-form"}>Signup</Link>
+        </div>
         <div className="hover:text-gray-500 text-black drop-shadow-2xl">
           <Link href={"/signup-form"}>Signup</Link>
         </div>

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 import Post from "../../../models/Post";
 import Comment from "../../../models/Comment";
 import Navbar from "../../../components/Navbar";
 import SinglePostCard from "../../../components/SinglePostCard";
-import { AppContextObject, useGlobalContext } from "../../../context";
+import { AppContextObject, AppContext } from "../../../context";
 
 const SinglePost: React.FC<{ post: Post; comments: Comment[] }> = (props) => {
   return (
@@ -23,7 +23,8 @@ const SinglePost: React.FC<{ post: Post; comments: Comment[] }> = (props) => {
 export async function getStaticPaths() {
   try {
     // Using ContextAPI data
-    const { posts } = useGlobalContext() as AppContextObject;
+    // const { posts } = useGlobalContext() as AppContextObject;
+    const { posts } = useContext(AppContext) as AppContextObject;
 
     return {
       fallback: "blocking",

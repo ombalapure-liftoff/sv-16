@@ -2,10 +2,12 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import SinglePostCard from "../components/SingleCard";
 import Navbar from "../components/Navbar";
-import { useGlobalContext, AppContextObject } from "../context";
+import { AppContextObject, AppContext } from "../context";
+import { useContext } from "react";
 
 const Home: NextPage = () => {
-  const { posts } = useGlobalContext() as AppContextObject;
+  // const { posts } = useGlobalContext() as AppContextObject;
+  const { posts } = useContext(AppContext) as AppContextObject;
 
   return (
     <div>
