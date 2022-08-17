@@ -60,7 +60,7 @@ const Navbar = () => {
           <Link href={"/signup-form"}>Signup</Link>
         </div>
         <div className="hover:text-gray-500 text-black drop-shadow-2xl">
-          <Link href={"/signup-form"}>Signup</Link>
+          <Link href={"/create-post"}>Create Post</Link>
         </div>
       </div>
     </nav>
