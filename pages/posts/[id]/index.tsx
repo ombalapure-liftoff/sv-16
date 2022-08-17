@@ -24,11 +24,15 @@ export async function getStaticPaths() {
   try {
     // Using ContextAPI data
     // const { posts } = useGlobalContext() as AppContextObject;
-    const { posts } = useContext(AppContext) as AppContextObject;
+    // const { posts } = useContext(AppContext) as AppContextObject;
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/posts",
+      { headers: { "Content-Type": "application/json" } }
+    );
 
     return {
       fallback: "blocking",
-      paths: posts.map((post: Post) => ({
+      paths: response.data.map((post: Post) => ({
         params: { id: post.id.toString() },
       })),
     };
